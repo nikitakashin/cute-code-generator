@@ -2,7 +2,12 @@
   "name": "cute-code-generator",
   "version": "1.0.0",
   "description": "Tiny lib for generating cute 4-digit codes",
-  "main": "index.js",
+  "keywords": [
+    "Verification code",
+    "Code",
+    "Random int"
+  ],
+  "main": "./dist/index.js",
   "scripts": {
     "test": "jest",
     "build": "./node_modules/.bin/babel --extensions .ts src --out-dir dist",
@@ -12,7 +17,11 @@
     "type": "git",
     "url": "git+https://github.com/nikitakashin/cute-code-generator.git"
   },
-  "author": "Nikita Kashin",
+  "author": {
+    "name": "Kashin Nikita",
+    "url": "https://github.com/nikitakashin/",
+    "email": "dev@nkashin.ru"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/nikitakashin/cute-code-generator/issues"
