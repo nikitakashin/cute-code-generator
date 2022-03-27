@@ -1,9 +1,14 @@
 {
   "name": "cute-code-generator",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tiny lib for generating cute 4-digit codes",
+  "published": "03.2022",
   "keywords": [
     "Verification code",
+    "SMS Code",
+    "4 digit code",
+    "Four digit code",
+    "Nice code",
     "Code",
     "Random int"
   ],
@@ -11,7 +16,7 @@
   "scripts": {
     "test": "jest",
     "build": "./node_modules/.bin/babel --extensions .ts src --out-dir dist",
-    "dev": "ts-node ./src/generateCuteCode.test.ts"
+    "dev": "ts-node ./src/index.ts"
   },
   "repository": {
     "type": "git",
@@ -26,7 +31,7 @@
   "bugs": {
     "url": "https://github.com/nikitakashin/cute-code-generator/issues"
   },
-  "homepage": "https://github.com/nikitakashin/cute-code-generator#readme",
+  "homepage": "https://commondev.ru/projects/cute-code-generator",
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
@@ -34,6 +39,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "@types/jest": "^27.4.1",
     "babel-jest": "^27.5.1",
+    "babel-preset-minify": "^0.5.1",
     "jest": "^27.5.1",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"

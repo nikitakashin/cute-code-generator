@@ -1,22 +1,17 @@
-// exports.printMsg = function() {
-// const printMsg = function() {
-//   for (let i = 0; i < 100; i++) {
-//     console.log(generateCuteCode());
-//   }
-// };
-
 type Code = string;
 
 module.exports.generateCuteCode = (): Code => {
   const variant = generateNumber();
   if (variant < 2) {
     return codeByThreeRandomNumbers();
-  } else if (variant < 5) {
+  } else if (variant < 4) {
     return codeByNumberAndZero();
-  } else if (variant < 7) {
+  } else if (variant < 6) {
     return codeByOneNumberAndThreeTimesAnotherNumber();
-  } else {
+  } else if (variant < 8) {
     return codeByRepeatingTwoDigitNumber();
+  } else {
+    return codeByXXPlusXXPlusOne();
   }
 };
 
@@ -67,6 +62,13 @@ const codeByThreeRandomNumbers = (): Code => {
   }
 };
 
+const codeByXXPlusXXPlusOne = (): Code => {
+  const firstNumber = getRandomTwoDigitnNumber();
+  const secondNumber = firstNumber !== 99 ? firstNumber + 1 : firstNumber - 9
+
+  return String(firstNumber) + String(secondNumber);
+};
+
 ///////////////////////////
 /// Auxiliary Functions ///
 ///////////////////////////
@@ -79,4 +81,8 @@ const generateTwoDigitNumber = (): Code => {
   const firstNumber = generateNumber();
   const secondNumber = firstNumber === 0 ? 9 : 9 - firstNumber;
   return String(firstNumber) + String(secondNumber);
+};
+
+const getRandomTwoDigitnNumber = (): number => {
+  return Math.floor(Math.random() * 100);
 };
