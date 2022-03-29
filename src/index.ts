@@ -63,7 +63,10 @@ const codeByThreeRandomNumbers = (): Code => {
 };
 
 const codeByXXPlusXXPlusOne = (): Code => {
-  const firstNumber = getRandomTwoDigitnNumber();
+  let firstNumber = getRandomTwoDigitnNumber();
+  if (firstNumber < 10) {
+    firstNumber += 10;
+  }
   const secondNumber = firstNumber !== 99 ? firstNumber + 1 : firstNumber - 9
 
   return String(firstNumber) + String(secondNumber);
