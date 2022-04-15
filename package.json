@@ -1,6 +1,6 @@
 {
   "name": "cute-code-generator",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Tiny lib for generating cute 4-digit codes",
   "published": "03.2022",
   "keywords": [
