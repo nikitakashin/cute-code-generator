@@ -2,16 +2,21 @@ type Code = string;
 
 module.exports.generateCuteCode = (): Code => {
   const variant = generateNumber();
-  if (variant < 2) {
-    return codeByThreeRandomNumbers();
-  } else if (variant < 4) {
-    return codeByNumberAndZero();
-  } else if (variant < 6) {
-    return codeByOneNumberAndThreeTimesAnotherNumber();
-  } else if (variant < 8) {
-    return codeByRepeatingTwoDigitNumber();
+
+  if (variant < 3) {
+    return getFullyRandomCode();
   } else {
-    return codeByXXPlusXXPlusOne();
+    if (variant < 4) {
+      return codeByThreeRandomNumbers();
+    } else if (variant < 6) {
+      return codeByNumberAndZero();
+    } else if (variant < 7) {
+      return codeByOneNumberAndThreeTimesAnotherNumber();
+    } else if (variant < 8) {
+      return codeByRepeatingTwoDigitNumber();
+    } else {
+      return codeByXXPlusXXPlusOne();
+    }
   }
 };
 
@@ -21,15 +26,17 @@ module.exports.generateCuteCode = (): Code => {
 
 const codeByRepeatingTwoDigitNumber = (): Code => {
   const twoDigitNumber = generateTwoDigitNumber();
+
   return twoDigitNumber + twoDigitNumber;
 };
 
-const codeByNumberAndZero = ():string => {
+const codeByNumberAndZero = (): string => {
   let number = generateNumber();
   number = number === 0 ? 9 : number;
 
   const zero = String(0);
   const randomInt = generateNumber();
+
   if (randomInt < 5) {
     return String(number) + zero + String(number) + zero;
   } else {
@@ -42,6 +49,7 @@ const codeByOneNumberAndThreeTimesAnotherNumber = (): Code => {
   const secondNumber = parseInt(firstNumber) === 0 ? String(9) : String(9 - parseInt(firstNumber));
 
   const randomInt = generateNumber();
+
   if (randomInt < 5) {
     return firstNumber + secondNumber + secondNumber + secondNumber;
   } else {
@@ -55,6 +63,7 @@ const codeByThreeRandomNumbers = (): Code => {
   const thirdNumber = String(generateNumber());
 
   const randomInt = generateNumber();
+
   if (randomInt < 5) {
     return firstNumber + secondNumber + firstNumber + thirdNumber;
   } else {
@@ -64,12 +73,17 @@ const codeByThreeRandomNumbers = (): Code => {
 
 const codeByXXPlusXXPlusOne = (): Code => {
   let firstNumber = getRandomTwoDigitnNumber();
+  
   if (firstNumber < 10) {
     firstNumber += 10;
   }
   const secondNumber = firstNumber !== 99 ? firstNumber + 1 : firstNumber - 9
 
   return String(firstNumber) + String(secondNumber);
+};
+
+const getFullyRandomCode = (): string => {
+  return (Math.floor(Math.random() * (9999 - 1000)) + 1000).toString();
 };
 
 ///////////////////////////
@@ -83,6 +97,7 @@ const generateNumber = ():number => {
 const generateTwoDigitNumber = (): Code => {
   const firstNumber = generateNumber();
   const secondNumber = firstNumber === 0 ? 9 : 9 - firstNumber;
+
   return String(firstNumber) + String(secondNumber);
 };
 
